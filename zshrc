@@ -98,3 +98,8 @@ export PYTHONPATH=/Users/tim/bin/pymol_scripts:/Users/tim/python_library:/Applic
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export EDITOR=nano
+
+source ~/dotfiles/aliases-jeff.zsh
+
+
