@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-# aliases JJG 11/2k
+# aliases JJG 2/2013
 
 ##################################################
 ##### bash shortcuts, universal
@@ -10,13 +10,10 @@
 # simple shell stuff
 # new: ls hides emacs backups, but la shows them (4/6/1)
 UNAME=`uname`
-#if [ $UNAME != "OSF1" ]; then COLOR=--color=tty; LSFLAGS=-Bh; fi;
-if [ $UNAME != "OSF1" ]; then COLOR=--color=yes; LSFLAGS=-Bh; fi;
-if [ $UNAME == "Darwin" ]; then COLOR=-G; LSFLAGS=-Bh; fi;
 alias rm='rm -i'
 #setenv CLICOLOR true # mac setting
-alias ls='ls -F $COLOR $LSFLAGS'
-alias la='"ls" -aF $COLOR'
+alias ls='ls -FG'
+alias la='"ls" -FGa'
 alias ll='ls -l'
 alias lla='la -l'
 alias lx='ll --sort=extension'
@@ -36,8 +33,8 @@ alias sl='ls'
 alias l='less'
 function lld
 {
-    ls -lF $COLOR "$@" | egrep '^d|total'
-    ls -lFB $COLOR "$@" | egrep -v '^d|total';
+    ls -lFG "$@" | egrep '^d|total'
+    ls -lFG "$@" | egrep -v '^d|total';
 }
 
 # program shortcuts
@@ -114,25 +111,8 @@ function xsh
 
 # terminals
 
-
-#fw=jeff@140.142.20.3 # ra firewall
-#fw=jeff@128.95.12.85 # new firewall
-fw=jeff@fw.bakerlab.org
-alias fw='ssh $fw'
-alias xfw='xsh $fw'
-
-if echo $HOSTNAME | grep -q "graylab.jhu.edu" || [ "$HOST" == "sandoval" ]
-then
-    # inside our firewall
-    graylabIP=satchmo
-#    graylabIP=192.168.1.6
-else
-    # outside our firewall
-    graylabIP=fw.graylab.jhu.edu
-#    graylabIP=128.220.103.198
-fi
-
-graylab=jeff@$graylabIP
+graylabIP=graylab.jhu.edu
+graylab=jeff@graylab.jhu.edu
 alias graylab='ssh -Y $graylab'
 alias xgraylab='xsh $graylab'
 satchmo=$graylab
@@ -143,18 +123,10 @@ alias xsatchmo='xgraylab'
 # cluster
 alias jazz="ssh jeff@jazz"
 alias xjazz="xsh jeff@jazz"
-alias mgt="ssh jeff@jazz-mgmt"
-alias xmgt="xsh jeff@jazz-mgmt"
-alias jazzmgt="ssh jeff@jazz-mgmt"
-alias xjazzmgt="xsh jeff@jazz-mgmt"
-alias jazzmgmt="ssh jeff@jazz-mgmt"
-alias xjazzmgmt="xsh jeff@jazz-mgmt"
-
-alias rasmol='rasmol -script ~/etc/rasmol/chain_cartoons.ras'
 
 alias psme='ps -ef|grep jeff'
 
-
+# Texas
 tacc=jgray@lonestar.tacc.utexas.edu
 alias tacc="ssh jgray@lonestar.tacc.utexas.edu"
 
@@ -195,134 +167,14 @@ alias cqr='condor_q -run'
 alias css='condor_status -submitters'
 alias cst='condor_status'
 alias cup='condor_userprio'
-#function cup(){
-#if [ ! -d /net/clusterinfo ]; then SSH="ssh bast.baker"; fi
-#if [ $1 ]; then BOX=$1;
-#elif [ -d /net/condor/hosts/$HOSTNAME ]; # we're on a condor cluster
-#then BOX=$(echo $HOSTNAME|sed 's/0//g'); fi
-#$SSH cat /net/clusterinfo/$BOX*cup
-#}
-#alias cupdate='update_cluster_info.sh'
-#alias cinfo='cat ~/etc/cluster_info/summary.txt'
-alias cwho='head -2 /net/clusterinfo/nut.css; cat /net/clusterinfo/*css | grep -E ^[[:alpha:]\.-]+@'
-
-
-function cvs_btk() {
-  export CVS_RSH=ssh
-  export CVSROOT=jjgray@cvs.btk.sourceforge.net:/cvsroot/btk
-}
-
 
 alias Rbatch='time nice R BATCH --no-restore --no-save'
-
-## UW cluster stuff
-
-clusters="nut ra dua set yrc"
-
-function clusterpushto ()
-{
-for m in $clusters
-do
-    echo scp $1 $m:$2
-    scp $1 $m:$2
-done
-}
-alias push_everywhere='clusterpushto'
-
-function clusterdo ()
-{
-for m in $clusters
-do
-    echo $m:$@
-    ssh $m $@
-done
-}
-alias do_everywhere='clusterdo'
-
-function clustermkdir ()
-{
-for m in $clusters
-do
-    echo $m:mkdir -p $PWD
-    ssh $m mkdir -p $PWD
-done
-}
-
-function clusterpush ()
-{
-for m in $clusters
-do
-    echo scp $@ $m:$PWD/
-    scp $@ $m:$PWD/
-done
-}
-
-function homemkdir ()
-{
-    echo hep:mkdir -p $PWD
-    ssh hep.baker mkdir -p $PWD
-}
-
-
-## graylab move data to and from cluster
-
-function putgraylab ()
-{
-    echo scp $@ $graylab:$PWD/
-    scp $@ $graylab:$PWD/
-}
-alias putduke='cpduke'
-
-function getgraylab ()
-{
-if [ "$1" == "-r" ]; then rflag=-r;shift;fi
-for f in $@
-do
-    echo scp $rflag $graylab:$PWD/$f .
-    scp $rflag $graylab:$PWD/$f .
-done
-}
-
-function cpjazz ()
-{
-    echo scp $@ jazz:$PWD/
-    scp $@ jazz:$PWD/
-}
-
-
-
-# JHU web account
-
-# graylab=graylab@www.jhu.edu
-# function graylabpush ()
-# {
-#     homelessdir=$(pwd | sed "s/$(echo ~jeff | sed 's/\//\\\//g')\///")
-#     echo scp $@ $graylab:$homelessdir/
-#     scp $@ $graylab:$homelessdir/
-# }
-# function graylabpull ()
-# {
-#     homelessdir=$(pwd | sed "s/$(echo ~jeff | sed 's/\//\\\//g')\///")
-#     echo scp $graylab:$homelessdir/$@ .
-#     scp $graylab:$homelessdir/$@ .
-# }
-
-
-# samba mount
-#alias mountbasie='smbmount //basie/JeffDocuments /home/jeff/mnt/basie -ousername=Jeff'
-#alias unmountbasie='smbumount /home/jeff/mnt/basie'
 
 # ChBE 409 aliases
 alias 409='newgrp ChBE409; umask g+rwx'
 alias no409='newgrp lab_users; umask g-w'
-
-
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
-alias mac='source .tcshrc-mac'
-
-
 # Ab aliases
-
 alias testAb='./antibody.py --heavy-chain ~/VH5.fasta --light-chain ~/VL5.fasta --antibody-assemble=/Users/jeff/Rosetta/rosetta/rosetta_source/bin/antibody_assemble_CDRs.macosgccrelease'
 alias cdA='cd ~/Rosetta/scripts.v2'
