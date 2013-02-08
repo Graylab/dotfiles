@@ -106,3 +106,11 @@ export EDITOR=nano
 source ~/dotfiles/aliases-jeff.zsh
 
 
+if [[ `hostname` = *tacc* ]]; then
+	echo detected TACC environment
+	module load git
+	module load subversion
+	module swap intel gcc
+	module load blast
+fi
+
