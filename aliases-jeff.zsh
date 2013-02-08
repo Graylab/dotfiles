@@ -83,7 +83,7 @@ function dusort
 }
 
 HOST=$(uname -n | sed 's/\.[[:print:]]*//')
-alias realias='source ~/.aliases;source ~/.rosettarc;
+alias realias='source ~/dotfiles/aliases-jeff.zsh;
   if [ -f ~/.$HOST\rc ]; then source ~/.$HOST\rc; fi;'
 
 #from jed@dotfiles.com
