@@ -83,7 +83,7 @@ function dusort
 }
 
 HOST=$(uname -n | sed 's/\.[[:print:]]*//')
-alias realias='source ~/.aliases;source ~/.rosettarc;
+alias realias='source ~/dotfiles/aliases-jeff.zsh;
   if [ -f ~/.$HOST\rc ]; then source ~/.$HOST\rc; fi;'
 
 #from jed@dotfiles.com
@@ -93,6 +93,8 @@ alias rgb='cat /usr/openwin/lib/X11/rgb.txt | more'
 alias y='echo Yeah, sure...'
 
 alias scp='scp -p'
+
+alias realias='source ~/dotfiles/aliases-jeff.zsh'
 
 ############################################
 ##### bash shortcuts for local use (Graylab)
@@ -159,6 +161,7 @@ function quote () {
 ##################################################
 
 # moved to .rosettarc
+ROSETTA3_DB=$HOME/Rosetta/rosetta/rosetta_database
 
 # condor
 alias cs='condor_submit'
