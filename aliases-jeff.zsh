@@ -189,5 +189,5 @@ ROSETTA3_DB=$ROSETTA/rosetta_database
 # Rosetta paths
 alias cdr='cd $ROSETTA/rosetta_source'
 alias cdbuild='cd $ROSETTA/rosetta_source/tools/build'
-alias jscons=   './scons.py -j 8 mode=release bin --nover'
+alias jscons='./scons.py -j 8 mode=release bin --nover'
 alias jsconsmpi='./scons.py -j 8 mode=release extras=mpi bin --nover'

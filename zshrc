@@ -97,6 +97,7 @@ function git_prompt_info() {
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/rosetta/scripts.v2
 #:~/bin:~/local/bin
 #export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
