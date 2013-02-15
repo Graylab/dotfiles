@@ -82,6 +82,9 @@ export WORDCHARS="*?_-.[]~=/&;!#$%^(){}<>"
 #disable autocorrection
 unsetopt correct_all
 
+#each shell has own history
+unsetopt sharehistory
+
 __git_files () { 
     _wanted files expl 'local files' _files 
 }
@@ -92,8 +95,9 @@ function git_prompt_info() {
 }
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/bin:~/Dropbox/TODO/
-export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+#:~/bin:~/local/bin
+#export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
 export PYTHONPATH=/Users/tim/bin/pymol_scripts:/Users/tim/python_library:/Applications/MacPyMOL.app/pymol/
@@ -109,8 +113,8 @@ source ~/dotfiles/aliases-jeff.zsh
 if [[ `hostname` = *tacc* ]]; then
 	echo detected TACC environment
 	module load git
-	module load subversion
-	module swap intel gcc
+#	module load subversion
+#	module swap intel gcc
 	module load blast
 fi
 

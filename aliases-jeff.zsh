@@ -94,8 +94,6 @@ alias y='echo Yeah, sure...'
 
 alias scp='scp -p'
 
-alias realias='source ~/dotfiles/aliases-jeff.zsh'
-
 ############################################
 ##### bash shortcuts for local use (Graylab)
 ############################################
@@ -161,7 +159,6 @@ function quote () {
 ##################################################
 
 # moved to .rosettarc
-ROSETTA3_DB=$HOME/Rosetta/rosetta/rosetta_database
 
 # condor
 alias cs='condor_submit'
@@ -181,3 +178,14 @@ alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10
 # Ab aliases
 alias testAb='./antibody.py --heavy-chain ~/VH5.fasta --light-chain ~/VL5.fasta --antibody-assemble=/Users/jeff/Rosetta/rosetta/rosetta_source/bin/antibody_assemble_CDRs.macosgccrelease'
 alias cdA='cd ~/Rosetta/scripts.v2'
+
+#TACC aliases
+if [[ `hostname` = *tacc* ]]; then
+  ROSETTA=$WORK/svn/rosetta
+fi
+ROSETTA3_DB=$ROSETTA/rosetta_database
+
+# Rosetta paths
+alias cdr='cd $ROSETTA/rosetta_source'
+alias cdbuild='cd $ROSETTA/rosetta_source/tools/build'
+alias jscons='./scons.py -j 8 mode=release extras=mpi bin --nover'
