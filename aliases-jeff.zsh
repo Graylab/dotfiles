@@ -176,10 +176,11 @@ alias no409='newgrp lab_users; umask g-w'
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
 # Ab aliases
-alias testAb='./antibody.py --heavy-chain ~/VH5.fasta --light-chain ~/VL5.fasta --antibody-assemble=/Users/jeff/Rosetta/rosetta/rosetta_source/bin/antibody_assemble_CDRs.macosgccrelease'
+alias testAb='./antibody.py --heavy-chain ~/VH5.fasta --light-chain ~/VL5.fasta'
 alias cdA='cd ~/Rosetta/scripts.v2'
 
 #TACC aliases
+ROSETTA=~/Rosetta/rosetta
 if [[ `hostname` = *tacc* ]]; then
   ROSETTA=$WORK/svn/rosetta
 fi
@@ -188,4 +189,5 @@ ROSETTA3_DB=$ROSETTA/rosetta_database
 # Rosetta paths
 alias cdr='cd $ROSETTA/rosetta_source'
 alias cdbuild='cd $ROSETTA/rosetta_source/tools/build'
-alias jscons='./scons.py -j 8 mode=release extras=mpi bin --nover'
+alias jscons=   './scons.py -j 8 mode=release bin --nover'
+alias jsconsmpi='./scons.py -j 8 mode=release extras=mpi bin --nover'
