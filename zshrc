@@ -96,6 +96,7 @@ function git_prompt_info() {
 
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=$PATH:$HOME/bin
 #:~/bin:~/local/bin
 #export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
@@ -116,5 +117,6 @@ if [[ `hostname` = *tacc* ]]; then
 #	module load subversion
 #	module swap intel gcc
 	module load blast
+	module load python
 fi
 
