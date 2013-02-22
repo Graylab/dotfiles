@@ -109,6 +109,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export EDITOR=nano
+export LESSOPEN="| /opt/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
 
 source ~/dotfiles/aliases-jeff.zsh
 

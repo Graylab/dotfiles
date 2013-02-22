@@ -161,6 +161,7 @@ function quote () {
 ##### mac shortcuts ####
 
 alias bbedit='open -a bbedit'
+alias pymol='open -a MacPyMOL'
 
 
 ##################################################
