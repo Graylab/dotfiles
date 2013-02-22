@@ -69,7 +69,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx svn)
+plugins=(git osx svn macports)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,5 +122,9 @@ if [[ `hostname` = *tacc* ]]; then
 #	module swap intel gcc
 	module load blast
 	module load python
+	export PATH=$PATH:$WORK/svn/scripts.v2
+	export PATH=$PATH:$WORK/svn/docking
+	export PATH=$PATH:$WORK/svn/docking/pdb_scripts
+	SSH_CLIENT_IP=$(echo $SSH_CLIENT | cut -f 1 -d" ")
 fi
 

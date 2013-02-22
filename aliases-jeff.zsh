@@ -24,8 +24,8 @@ alias lsd='ltop'
 alias lsize='lla --sort=size'
 alias lss='lla --sort=size|head -30'
 alias dir='ls'
-alias cd='old=$PWD;cd '
-alias bk='back=$old; cd $back; pwd; unset back'
+alias bk='cd -'
+alias cd-='cd -'
 alias cd..='cd ..'
 alias up='cd..'
 alias ..='cd..'
@@ -203,4 +203,7 @@ alias jsconsicc='time nohup ./scons.py -j 20 mode=release bin gcc=icc --nover | 
 alias jsconsiccmpi='time nohup ./scons.py -j 20 mode=release extras=mpi gcc=icc bin | tee scons.out.iccmpi 2>&1 &'
 alias jsconsolungu='time  nohup ./scons.py -j 20 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
 
-alias calcdecoytime='grep attempted out | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"'
+#alias calcdecoytime='grep attempted out | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"'
+function calcdecoytime(){
+	grep attempted $@ | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"
+}
