@@ -87,7 +87,6 @@ function countfiles
 	find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" | wc -l; done
 }
 
-HOST=$(uname -n | sed 's/\.[[:print:]]*//')
 alias realias='source ~/dotfiles/aliases-jeff.zsh;
   if [ -f ~/.$HOST\rc ]; then source ~/.$HOST\rc; fi;'
 

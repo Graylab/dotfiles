@@ -112,7 +112,7 @@ export EDITOR=nano
 
 source ~/dotfiles/aliases-jeff.zsh
 
-
+HOST=$(uname -n | sed 's/\.[[:print:]]*//')
 if [[ `hostname` = *tacc* ]]; then
 	echo detected TACC environment
 	module load git
