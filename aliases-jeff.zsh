@@ -106,6 +106,7 @@ alias scp='scp -p'
 alias cdt='cd ~/tmp'
 alias cdmac='cd ~/PyRosetta'
 alias cdbindings='cd ~/svn/mini/src/python/bindings'
+alias cddotfiles='cd ~/dotfiles'
 
 # terminal shortcuts
 
