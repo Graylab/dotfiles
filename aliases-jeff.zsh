@@ -108,6 +108,9 @@ alias cdmac='cd ~/PyRosetta'
 alias cdbindings='cd ~/svn/mini/src/python/bindings'
 alias cddotfiles='cd ~/dotfiles'
 
+setopt autocd
+cdpath=($HOME $WORK $ROSETTA $HOME/Research)
+
 # terminal shortcuts
 
 function xsh
