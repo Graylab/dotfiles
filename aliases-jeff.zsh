@@ -198,8 +198,10 @@ alias cdrep='cd ~/Research/repertoires'
 
 #TACC aliases
 ROSETTA=~/Rosetta/rosetta
-if [[ `hostname` = *tacc* ]]; then
+if [[ `hostname` = *lonestar* ]]; then
   ROSETTA=$WORK/svn/rosetta
+elif [[ `hostname` = *stampede* ]]; then
+  ROSETTA=$WORK/git/rosetta
 fi
 ROSETTA3_DB=$ROSETTA/rosetta_database
 
