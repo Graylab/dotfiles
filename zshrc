@@ -109,8 +109,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export EDITOR=nano
-export LESSOPEN="| /opt/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '
 
 source ~/dotfiles/aliases-jeff.zsh
 
@@ -120,11 +118,19 @@ if [[ `hostname` = *tacc* ]]; then
 	module load git
 #	module load subversion
 #	module swap intel gcc
-	module load blast
 	module load python
 	export PATH=$PATH:$WORK/svn/scripts.v2
 	export PATH=$PATH:$WORK/svn/docking
 	export PATH=$PATH:$WORK/svn/docking/pdb_scripts
 	SSH_CLIENT_IP=$(echo $SSH_CLIENT | cut -f 1 -d" ")
+    if [[ `hostname` = *ls* ]]; then
+	    echo detected lonestar environment
+    	module load blast
+    	HOST=lonestar
+    elif [[ `hostname` = *stampede* ]]; then
+    	echo detected stampede environment
+    	module load subversion
+    	HOST=stampede
+    fi
 fi
 
