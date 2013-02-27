@@ -161,7 +161,6 @@ function quote () {
 ##### mac shortcuts ####
 
 alias bbedit='open -a bbedit'
-alias pymol='open -a MacPyMOL'
 
 
 ##################################################
@@ -186,8 +185,8 @@ alias no409='newgrp lab_users; umask g-w'
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
 # Ab aliases
-alias testAb='./antibody.py --heavy-chain ~/VH5.fasta --light-chain ~/VL5.fasta'
 alias cdA='cd ~/Rosetta/scripts.v2'
+alias cdrep='cd ~/Research/repertoires'
 
 #TACC aliases
 ROSETTA=~/Rosetta/rosetta
