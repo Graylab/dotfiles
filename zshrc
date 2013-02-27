@@ -116,7 +116,6 @@ source ~/dotfiles/aliases-jeff.zsh
 if [[ `hostname` = *tacc* ]]; then
 	echo detected TACC environment
 	module load git
-#	module load subversion
 #	module swap intel gcc
 	module load python
 	export PATH=$PATH:$WORK/svn/scripts.v2
@@ -126,10 +125,10 @@ if [[ `hostname` = *tacc* ]]; then
     if [[ `hostname` = *ls* ]]; then
 	    echo detected lonestar environment
     	module load blast
+#	 	module load subversion
     	HOST=lonestar
     elif [[ `hostname` = *stampede* ]]; then
     	echo detected stampede environment
-    	module load subversion
     	HOST=stampede
     fi
 fi
