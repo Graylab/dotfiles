@@ -85,6 +85,9 @@ unsetopt correct_all
 #each shell has own history
 unsetopt sharehistory
 
+#better dealing with ambiguous auto-completion
+setopt list_ambiguous
+
 __git_files () { 
     _wanted files expl 'local files' _files 
 }
