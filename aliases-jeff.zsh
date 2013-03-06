@@ -1,6 +1,4 @@
-
-#!/bin/bash
-
+#!/bin/zsh
 # aliases JJG 2/2013
 
 ##################################################
@@ -8,7 +6,6 @@
 ##################################################
 
 # simple shell stuff
-# new: ls hides emacs backups, but la shows them (4/6/1)
 UNAME=`uname`
 alias rm='rm -i'
 #setenv CLICOLOR true # mac setting
@@ -87,7 +84,6 @@ function countfiles
 	find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" | wc -l; done
 }
 
-HOST=$(uname -n | sed 's/\.[[:print:]]*//')
 alias realias='source ~/dotfiles/aliases-jeff.zsh;
   if [ -f ~/.$HOST\rc ]; then source ~/.$HOST\rc; fi;'
 
@@ -169,6 +165,7 @@ function quote () {
 ##### mac shortcuts ####
 
 alias bbedit='open -a bbedit'
+alias pymol='open -a MacPyMOL'
 
 
 ##################################################
@@ -212,6 +209,7 @@ alias jsconsicc='time nohup ./scons.py -j 20 mode=release bin gcc=icc --nover | 
 alias jsconsiccmpi='time nohup ./scons.py -j 20 mode=release extras=mpi gcc=icc bin | tee scons.out.iccmpi 2>&1 &'
 alias jsconsolungu='time  nohup ./scons.py -j 20 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
 
+# Antibody shortcuts
 #alias calcdecoytime='grep attempted out | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"'
 function calcdecoytime(){
 	grep attempted $@ | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"

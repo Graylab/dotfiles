@@ -27,6 +27,9 @@ run ~/dotfiles/pymol_scripts/super_all.py
 run ~/dotfiles/pymol_scripts/select_mutated.py
 run ~/dotfiles/pymol_scripts/display_scripts.py
 
+run ~/local/pyrosetta/PyMOLPyRosettaServer.py
+print "RAN PyMOLPyRosettaServer"
+
 #run ~/dotfiles/pymol_scripts/color_obj.py
 #print "RAN color_obj.py"
 
