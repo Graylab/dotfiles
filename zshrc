@@ -114,6 +114,8 @@ export LC_ALL=en_US.UTF-8
 export EDITOR=nano
 
 source ~/dotfiles/aliases-jeff.zsh
+source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
+export PATH=$PATH:$PYROSETTA
 
 HOST=$(uname -n | sed 's/\.[[:print:]]*//')
 if [[ `hostname` = *tacc* ]]; then
