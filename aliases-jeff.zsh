@@ -198,12 +198,17 @@ alias cdrep='cd ~/Research/repertoires'
 
 #TACC aliases
 ROSETTA=~/Rosetta/rosetta
+RABSCRIPTS=~/Rosetta/scripts.v2
 if [[ `hostname` = *lonestar* ]]; then
   ROSETTA=$WORK/svn/rosetta
+  RABSCRIPTS=$WORK/svn/scripts.v2
 elif [[ `hostname` = *stampede* ]]; then
   ROSETTA=$WORK/git/rosetta
+  RABSCRIPTS=$WORK/svn/scripts.v2
 fi
 ROSETTA3_DB=$ROSETTA/rosetta_database
+export PATH=$PATH:$RABSCRIPTS
+source $RABSCRIPTS/antibody_functions.zsh
 
 # Rosetta paths
 alias cdr='cd $ROSETTA/rosetta_source'
@@ -211,26 +216,3 @@ alias cdbuild='cd $ROSETTA/rosetta_source/tools/build'
 alias jsconsicc='time nohup ./scons.py -j 20 mode=release bin cxx=icc --nover | tee scons.out.icc 2>&1 &'
 alias jsconsiccmpi='time nohup ./scons.py -j 20 mode=release extras=mpi cxx=icc bin | tee scons.out.iccmpi 2>&1 &'
 alias jsconsolungu='time  nohup ./scons.py -j 20 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
-
-# Antibody shortcuts
-#alias calcdecoytime='grep attempted out | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"'
-function calcdecoytime(){
-	grep attempted $@ | awk "{j+=\$10;n+=\$6;print n,\$10, j, j/n;}"
-}
-
-# note: ${1+$1/} expands to $1/ if $1 exists, otherwise empty.  allows a directory prefix or not
-function lastpdb() {
-	for d in ${1+$1/}*/pdbs; do echo -n $d/; ls $d | tail -1; done	
-}
-
-function H3lengths() {
-	for f in ${1+$1/}*/grafting/details/H3.fasta; do echo -n $f\ ;tail -1 $f | wc | awk {'print $3'} ; done
-}
-
-function H3list() {
-	for f in ${1+$1/}*/grafting/details/H3.fasta; do echo -n $f\ ;tail -1 $f; done 
-}
-
-function H3lengthshist() {
-	for f in ${1+$1/}*/grafting/details/H3.fasta; do tail -1 $f | wc | awk {'print $3'} ; done | sort -n | uniq -c
-}
