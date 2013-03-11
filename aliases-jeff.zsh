@@ -192,10 +192,6 @@ alias 409='newgrp ChBE409; umask g+rwx'
 alias no409='newgrp lab_users; umask g-w'
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
-# Ab aliases
-alias cdA='cd ~/Rosetta/scripts.v2'
-alias cdrep='cd ~/Research/repertoires'
-
 #TACC aliases
 ROSETTA=~/Rosetta/rosetta
 RABSCRIPTS=~/Rosetta/scripts.v2
@@ -209,6 +205,10 @@ fi
 ROSETTA3_DB=$ROSETTA/rosetta_database
 export PATH=$PATH:$RABSCRIPTS
 source $RABSCRIPTS/antibody_functions.zsh
+
+# Ab aliases
+alias cdA='cd $RABSCRIPTS'
+alias cdrep='cd ~/Research/repertoires'
 
 # Rosetta paths
 alias cdr='cd $ROSETTA/rosetta_source'
