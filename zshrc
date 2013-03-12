@@ -129,10 +129,10 @@ if [[ `hostname` = *tacc* ]]; then
 	    echo detected lonestar environment
     	module load blast
 #	 	module load subversion
-    	HOST=lonestar
+    	export HOST=lonestar
     elif [[ `hostname` = *stampede* ]]; then
     	echo detected stampede environment
-    	HOST=stampede
+    	export HOST=stampede
     fi
 fi
 
