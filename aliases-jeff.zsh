@@ -195,10 +195,10 @@ alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10
 #TACC aliases
 ROSETTA=~/Rosetta/rosetta
 RABSCRIPTS=~/Rosetta/scripts.v2
-if [[ `hostname` = *lonestar* ]]; then
+if [[ $HOST = *lonestar* ]]; then
   ROSETTA=$WORK/svn/rosetta
   RABSCRIPTS=$WORK/svn/scripts.v2
-elif [[ `hostname` = *stampede* ]]; then
+elif [[ $HOST = *stampede* ]]; then
   ROSETTA=$WORK/git/rosetta
   RABSCRIPTS=$WORK/svn/scripts.v2
 fi
