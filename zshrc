@@ -113,10 +113,6 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR=nano
 
-source ~/dotfiles/aliases-jeff.zsh
-source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
-export PATH=$PATH:$PYROSETTA
-
 HOST=$(uname -n | sed 's/\.[[:print:]]*//')
 if [[ `hostname` = *tacc* ]]; then
 	echo detected TACC environment
@@ -131,11 +127,15 @@ if [[ `hostname` = *tacc* ]]; then
 	    echo detected lonestar environment
     	module load blast
 #	 	module load subversion
-    	HOST=lonestar
+    	export HOST=lonestar
     elif [[ `hostname` = *stampede* ]]; then
     	echo detected stampede environment
     	HOST=stampede
     	export SQUEUE_FORMAT="%.7i %.9P %.14j %.8u %.2t %.10M %.6D %R" 
     fi
 fi
+
+source ~/dotfiles/aliases-jeff.zsh
+source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
+export PATH=$PATH:$PYROSETTA
 
