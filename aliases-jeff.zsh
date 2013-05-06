@@ -2,7 +2,7 @@
 # aliases JJG 2/2013
 
 ##################################################
-##### bash shortcuts, universal
+##### zsh shortcuts, universal
 ##################################################
 
 # simple shell stuff
@@ -95,12 +95,15 @@ alias y='echo Yeah, sure...'
 
 alias scp='scp -p'
 
-############################################
-##### bash shortcuts for local use (Graylab)
-############################################
+# move multiple files
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
+###########################################
+##### zsh shortcuts for local use (Graylab)
+###########################################
 
 alias cdt='cd ~/tmp'
-alias cdmac='cd ~/PyRosetta'
 alias cdbindings='cd ~/svn/mini/src/python/bindings'
 alias cddotfiles='cd ~/dotfiles'
 
@@ -120,10 +123,10 @@ graylabIP=graylab.jhu.edu
 graylab=jeff@graylab.jhu.edu
 alias graylab='ssh -Y $graylab'
 alias xgraylab='xsh $graylab'
-satchmo=$graylab
-satchmoIP=$graylabIP
-alias satchmo='graylab'
-alias xsatchmo='xgraylab'
+louis=$graylab
+louisIP=$graylabIP
+alias louis='graylab'
+alias xlouis='xgraylab'
 
 # cluster
 alias jazz="ssh jeff@jazz"
@@ -167,7 +170,6 @@ function quote () {
 alias bbedit='open -a bbedit'
 alias pymol='open -a MacPyMOL'
 
-
 ##################################################
 ##### research-related shortcuts
 ##################################################
@@ -193,8 +195,7 @@ alias no409='newgrp lab_users; umask g-w'
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
 #TACC aliases
-ROSETTA=~/Rosetta/rosetta
-RABSCRIPTS=~/Rosetta/scripts.v2
+ROSETTA=~/git/Rosetta
 if [[ $HOST = *lonestar* ]]; then
   ROSETTA=$WORK/svn/rosetta
   RABSCRIPTS=$WORK/svn/scripts.v2
@@ -202,18 +203,18 @@ elif [[ $HOST = *stampede* ]]; then
   ROSETTA=$WORK/git/rosetta
   RABSCRIPTS=$WORK/svn/scripts.v2
 fi
-ROSETTA3_DB=$ROSETTA/rosetta_database
+RABSCRIPTS=$ROSETTA/tools/antibody
+ROSETTA3_DB=$ROSETTA/main/rosetta_database
 export PATH=$PATH:$RABSCRIPTS
+export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
 source $RABSCRIPTS/antibody_functions.zsh
 
 # Ab aliases
 alias cdA='cd $RABSCRIPTS'
-alias cdrep='cd ~/Research/repertoires'
 
 # Rosetta paths
-alias cdr='cd $ROSETTA/rosetta_source'
-alias cdbuild='cd $ROSETTA/rosetta_source/tools/build'
+alias cdr='cd $ROSETTA/main/source'
+alias cdbuild='cd $ROSETTA/main/source/tools/build'
 alias jsconsicc='time nohup ./scons.py -j 8 mode=release bin cxx=icc --nover | tee scons.out.icc 2>&1 &'
-alias jsconsiccmpi='time nohup ./scons.py -j 8 mode=release extras=mpi cxx=icc bin | tee scons.out.iccmpi 2>&1 &'
 alias jsconsiccmpimkl='time nohup ./scons.py -j 8 mode=release extras=mpi,mkl cxx=icc bin | tee scons.out.iccmpimkl 2>&1 &'
 alias jsconsolungu='time  nohup ./scons.py -j 8 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
