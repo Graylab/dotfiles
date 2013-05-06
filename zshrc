@@ -100,7 +100,6 @@ function git_prompt_info() {
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/git/Rosetta/tools/antibody
 #:~/bin:~/local/bin
 # next line for olungu MPI compile paths
 export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
@@ -119,7 +118,6 @@ if [[ `hostname` = *tacc* ]]; then
 	module load git
 #	module swap intel gcc
 	module load python
-	export PATH=$PATH:$WORK/svn/scripts.v2
 	export PATH=$PATH:$WORK/svn/docking
 	export PATH=$PATH:$WORK/svn/docking/pdb_scripts
 	SSH_CLIENT_IP=$(echo $SSH_CLIENT | cut -f 1 -d" ")
