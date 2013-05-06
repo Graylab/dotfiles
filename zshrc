@@ -137,3 +137,4 @@ source ~/dotfiles/aliases-jeff.zsh
 source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
 export PATH=$PATH:$PYROSETTA
 
+# testing BBEdit git checking
