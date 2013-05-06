@@ -196,12 +196,8 @@ alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10
 
 #TACC aliases
 ROSETTA=~/git/Rosetta
-if [[ $HOST = *lonestar* ]]; then
-  ROSETTA=$WORK/svn/rosetta
-  RABSCRIPTS=$WORK/svn/scripts.v2
-elif [[ $HOST = *stampede* ]]; then
-  ROSETTA=$WORK/git/rosetta
-  RABSCRIPTS=$WORK/svn/scripts.v2
+if [[ `hostname` = *tacc* ]]; then
+  ROSETTA=$WORK/git/Rosetta
 fi
 RABSCRIPTS=$ROSETTA/tools/antibody
 ROSETTA3_DB=$ROSETTA/main/rosetta_database
@@ -218,3 +214,7 @@ alias cdbuild='cd $ROSETTA/main/source/tools/build'
 alias jsconsicc='time nohup ./scons.py -j 8 mode=release bin cxx=icc --nover | tee scons.out.icc 2>&1 &'
 alias jsconsiccmpimkl='time nohup ./scons.py -j 8 mode=release extras=mpi,mkl cxx=icc bin | tee scons.out.iccmpimkl 2>&1 &'
 alias jsconsolungu='time  nohup ./scons.py -j 8 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
+
+# git
+alias status='git status'
+
