@@ -211,9 +211,12 @@ alias cdA='cd $RABSCRIPTS'
 # Rosetta paths
 alias cdr='cd $ROSETTA/main/source'
 alias cdbuild='cd $ROSETTA/main/source/tools/build'
-alias jsconsicc='time nohup ./scons.py -j 8 mode=release bin cxx=icc --nover | tee scons.out.icc 2>&1 &'
-alias jsconsiccmpimkl='time nohup ./scons.py -j 8 mode=release extras=mpi,mkl cxx=icc bin | tee scons.out.iccmpimkl 2>&1 &'
-alias jsconsolungu='time  nohup ./scons.py -j 8 mode=release extras=mpi bin --nover | tee scons.out.olungu 2>&1 &'
+alias jsconsicc='time nohup ./scons.py -j 8 mode=release bin cxx=icc | tee scons.out.icc 2>&1 &'
+alias jsconsiccmpi='      time nohup ./scons.py -j 8 mode=release bin extras=mpi cxx=icc | tee scons.out.iccmpi 2>&1 &'
+alias jsconsiccmpimkl='time nohup ./scons.py -j 8 mode=release bin extras=mpi,mkl cxx=icc | tee scons.out.iccmpimkl 2>&1 &'
+alias jsconsolungu='time  nohup ./scons.py -j 8 mode=release bin extras=mpi | tee scons.out.olungu 2>&1 &'
+alias jsconslonestar='jsconsiccmpi'
+alias jsconsstampede='jsconsiccmpimkl'
 
 # git
 alias status='git status'
