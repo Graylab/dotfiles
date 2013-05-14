@@ -200,7 +200,7 @@ if [[ `hostname` = *tacc* ]]; then
   ROSETTA=$WORK/git/Rosetta
 fi
 RABSCRIPTS=$ROSETTA/tools/antibody
-ROSETTA3_DB=$ROSETTA/main/rosetta_database
+ROSETTA3_DB=$ROSETTA/main/database
 export PATH=$PATH:$RABSCRIPTS
 export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
 source $RABSCRIPTS/antibody_functions.zsh
@@ -221,3 +221,6 @@ alias jsconsstampede='jsconsiccmpimkl'
 # git
 alias status='git status'
 
+set -o shwordsplit
+export abtests='antibody antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
+alias abintegrationtests='cdr; cd ../tests/integration; ./integration.py $abtests'
