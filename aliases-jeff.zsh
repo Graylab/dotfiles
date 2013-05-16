@@ -217,10 +217,13 @@ alias jsconsiccmpimkl='time nohup ./scons.py -j 8 mode=release bin extras=mpi,mk
 alias jsconsolungu='time  nohup ./scons.py -j 8 mode=release bin extras=mpi | tee scons.out.olungu 2>&1 &'
 alias jsconslonestar='jsconsiccmpi'
 alias jsconsstampede='jsconsiccmpimkl'
+alias jsconsmac='./scons.py -j 4 mode=release bin'
+alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 
 # git
 alias status='git status'
 
 set -o shwordsplit
-export abtests='antibody antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
+export abtests='antibody_legacy antibody_CDR_grafting antibody_H3 antibody_H3_legacy'
+#export abtests='antibody_legacy antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
 alias abintegrationtests='cdr; cd ../tests/integration; ./integration.py $abtests'
