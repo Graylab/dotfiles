@@ -58,6 +58,7 @@ alias adios='exit'
 alias adieu='exit'
 alias ciao='exit'
 alias quit='exit'
+alias top='top -o cpu'
 
 # make with more processors if SMP kernel
 if uname -a | grep -iq smp
@@ -106,9 +107,6 @@ alias mmv='noglob zmv -W'
 alias cdt='cd ~/tmp'
 alias cdbindings='cd ~/svn/mini/src/python/bindings'
 alias cddotfiles='cd ~/dotfiles'
-
-setopt autocd
-cdpath=($HOME $WORK $ROSETTA $HOME/Research)
 
 # terminal shortcuts
 
@@ -224,6 +222,13 @@ alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 alias status='git status'
 
 set -o shwordsplit
-export abtests='antibody_legacy antibody_CDR_grafting antibody_H3 antibody_H3_legacy'
+export abtests='antibody_legacy antibody_graft antibody_H3 antibody_H3_legacy'
 #export abtests='antibody_legacy antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
 alias abintegrationtests='cdr; cd ../tests/integration; ./integration.py $abtests'
+
+
+setopt autocd
+cdpath=($HOME $WORK $ROSETTA $HOME/Research $ROSETTA/main/tests $ROSETTA/main)
+
+export ROSETTA
+export ROSETTA3_DB
