@@ -1,6 +1,4 @@
 
-
-
 # Histrory control
 HISTSIZE=1000
 SAVEHIST=1000
@@ -8,7 +6,7 @@ HISTFILE=~/.history
 
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 
 setopt EXTENDED_HISTORY
 
@@ -19,7 +17,7 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
 
 # To consider:
-# EXTENDED_GLOB 
+# EXTENDED_GLOB
 
 setopt MULTIOS
 
@@ -64,25 +62,25 @@ bindkey "^[[F"  end-of-line
 # do we need compinit?
 
 autoload -U compinit && compinit
-zmodload -i zsh/complist 
+zmodload -i zsh/complist
 
 setopt NO_LIST_BEEP
 setopt COMPLETE_ALIASES
 setopt COMPLETE_IN_WORD
 
-unsetopt MENU_COMPLETE  # do not autoselect the first completion entry                                                                                                           
-setopt   AUTO_MENU      # show completion menu on succesive tab press    
+unsetopt MENU_COMPLETE  # do not autoselect the first completion entry
+setopt   AUTO_MENU      # show completion menu on succesive tab press
 
-# setopt LIST_PACKED 
+# setopt LIST_PACKED
 # setopt LIST_ROWS_FIRST
 
-## case-insensitive (all),partial-word and then substring completion                                                                                                              
-if [ "x$CASE_SENSITIVE" = "xtrue" ]; then                                                                                                                                         
-    zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'                                                                                                            
-    unset CASE_SENSITIVE                                                                                                                                                            
+## case-insensitive (all),partial-word and then substring completion
+if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
+    zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+    unset CASE_SENSITIVE
 else
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'                                                                                      
-fi 
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+fi
 
 
 zstyle ':completion:*' list-colors ''
@@ -93,8 +91,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 
 
 bindkey -M menuselect '+' accept-and-menu-complete
-bindkey -M menuselect '\' accept-and-infer-next-history 
-bindkey -M menuselect '^o' accept-and-infer-next-history 
+bindkey -M menuselect '\' accept-and-infer-next-history
+bindkey -M menuselect '^o' accept-and-infer-next-history
 
 #autoload colors && colors
 
@@ -122,13 +120,14 @@ screen_info_color=$'\e[0;38;5;117m'
 function screen_info_raw() {
     if [ "${STY}" != "" ] ; then
 	spl=("${(s/./)STY}")
-	if [ "${#spl[@]}" -eq "2" ] ; then
-	    name=$spl[2]
+	if [ "${#spl[@]}" -ge "2" ] ; then
+	    name=$(printf ".%s" "${spl[@]:1}")
+	    name=${name:1}
 	else
 	    name=$STY
 	fi
 	echo -n "$name"
-    fi 
+    fi
 }
 
 function screen_info() {
@@ -154,9 +153,9 @@ PROMPT='%{%F{green}%B%}%n@%m $(screen_info)%{%B%F{blue}%}%48<...<%~ $(git_info)%
 # precmd () { print -Pn "\e]0;%n@%m:%~\a" }
 precmd () {  # removing path because we never have space for it...
     if [ "${STY}" != "" ] ; then
-	print -Pn "\e]0;$(screen_info_raw)\a" 
+	print -Pn "\e]0;$(screen_info_raw)\a"
     else
-	print -Pn "\e]0;$STY%n@%m\a" 
+	print -Pn "\e]0;$STY%n@%m\a"
     fi
 }
 
@@ -169,3 +168,6 @@ export LSCOLORS='Exgxcxdxcxegedabagacad'
 alias dirs='dirs -v'
 
 export EDITOR=mcedit
+
+
+cd ~/work
