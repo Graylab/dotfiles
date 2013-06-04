@@ -199,6 +199,7 @@ if [[ `hostname` = *tacc* ]]; then
 fi
 RABSCRIPTS=$ROSETTA/tools/antibody
 ROSETTA3_DB=$ROSETTA/main/database
+export PATH=$PATH:$ROSETTA/main/source/bin
 export PATH=$PATH:$RABSCRIPTS
 export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
 source $RABSCRIPTS/antibody_functions.zsh
