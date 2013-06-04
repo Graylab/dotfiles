@@ -137,8 +137,12 @@ lonestar=jgray@lonestar.tacc.utexas.edu
 alias lonestar="ssh jgray@lonestar.tacc.utexas.edu"
 stampede=jgray@stampede.tacc.utexas.edu
 alias stampede="ssh jgray@stampede.tacc.utexas.edu"
-tacc=$lonestar
-alias tacc='lonestar'
+tacc=$stampede
+alias tacc='stampede'
+willie=jeff@willie.icmb.utexas.edu
+alias willie='ssh jeff@willie.icmb.utexas.edu'
+
+
 
 # enscript aliases: for pretty printing of code
 # en2 = print code in 2-up pages
