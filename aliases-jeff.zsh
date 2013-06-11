@@ -213,6 +213,8 @@ alias cdA='cd $RABSCRIPTS'
 
 # Rosetta paths
 alias cdr='cd $ROSETTA/main/source'
+alias cdr2='cd $ROSETTA\2/Rosetta/main/source'
+alias cdx='cd $ROSETTA/main/source/xcode'
 alias cdbuild='cd $ROSETTA/main/source/tools/build'
 alias jsconsicc='time nohup ./scons.py -j 8 mode=release bin cxx=icc | tee scons.out.icc 2>&1 &'
 alias jsconsiccmpi='      time nohup ./scons.py -j 8 mode=release bin extras=mpi cxx=icc | tee scons.out.iccmpi 2>&1 &'
@@ -229,7 +231,7 @@ alias status='git status'
 set -o shwordsplit
 export abtests='antibody_legacy antibody_graft antibody_H3 antibody_H3_legacy'
 #export abtests='antibody_legacy antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
-alias abintegrationtests='cdr; cd ../tests/integration; ./integration.py $abtests'
+alias abintegrationtests='./integration.py -j4 $abtests'
 
 
 setopt autocd

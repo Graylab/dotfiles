@@ -121,6 +121,12 @@ if [[ `hostname` = *tacc* ]]; then
 	export PATH=$PATH:$WORK/svn/docking
 	export PATH=$PATH:$WORK/svn/docking/pdb_scripts
 	SSH_CLIENT_IP=$(echo $SSH_CLIENT | cut -f 1 -d" ")
+	if [[ -d $SCRATCH/pyrosetta ]]; then
+		source $SCRATCH/pyrosetta/SetPyRosettaEnvironment.sh
+	else
+		echo No PyRosetta on $SCRATCH.  Consider running:
+		echo cd $SCRATCH; untar $WORK/PyRosetta*; realias
+	fi
     if [[ `hostname` = *ls* ]]; then
 	    echo detected lonestar environment
     	module load blast
@@ -134,7 +140,7 @@ if [[ `hostname` = *tacc* ]]; then
 fi
 
 source ~/dotfiles/aliases-jeff.zsh
-source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
+if [[ -d ~/local/pyrosetta ]]; then source ~/local/pyrosetta/SetPyRosettaEnvironment.sh; fi
 export PATH=$PATH:$PYROSETTA
 
 # testing BBEdit git checking
