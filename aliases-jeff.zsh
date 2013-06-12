@@ -70,7 +70,7 @@ fi
 alias df='df -h'
 alias du='du -kh'
 # disk usage -- list only directories, and sort
-function dubrief
+function dubrief  ### try du -s ?
 {
     'du' -kh $@ |  grep -vE '/.+/'
 }
@@ -142,23 +142,6 @@ alias tacc='stampede'
 willie=jeff@willie.icmb.utexas.edu
 alias willie='ssh jeff@willie.icmb.utexas.edu'
 
-
-
-# enscript aliases: for pretty printing of code
-# en2 = print code in 2-up pages
-# this function calls en2 or en2f depending on whether we are in
-# the rosetta directory (because in that directory, '.h' files
-# should be printed in fortran format)
-alias enscript2='enscript -fCourier7 --pretty-print --color -2r -DDuplex:true -DTumble:false --margins=30:30:30:30'
-alias en2f='enscript2 --pretty-print=fortran'
-function en2 () {
-    if ( echo $PWD | grep -c rosetta > /dev/null )
-#    if [ /users/jeff/rosetta* = $PWD ]
-    then en2f $@
-    else enscript2 $@
-    fi
-}
-
 function quote () {
         echo Type the quote, ^C to end
         cat >> ~/docs/personal/quotes
@@ -175,8 +158,6 @@ alias pymol='open -a MacPyMOL'
 ##################################################
 ##### research-related shortcuts
 ##################################################
-
-# moved to .rosettarc
 
 # condor
 alias cs='condor_submit'
@@ -197,12 +178,13 @@ alias no409='newgrp lab_users; umask g-w'
 alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
 #TACC aliases
-ROSETTA=~/git/Rosetta
+export ROSETTA=~/git/Rosetta
 if [[ `hostname` = *tacc* ]]; then
-  ROSETTA=$WORK/git/Rosetta
+  export ROSETTA=$WORK/git/Rosetta
+  alias isession='srun -p development -t 0:30:00 -n 32 --pty /bin/bash -l'
 fi
-RABSCRIPTS=$ROSETTA/tools/antibody
-ROSETTA3_DB=$ROSETTA/main/database
+export RABSCRIPTS=$ROSETTA/tools/antibody
+export ROSETTA3_DB=$ROSETTA/main/database
 export PATH=$PATH:$ROSETTA/main/source/bin
 export PATH=$PATH:$RABSCRIPTS
 export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
@@ -233,9 +215,5 @@ export abtests='antibody_legacy antibody_graft antibody_H3 antibody_H3_legacy'
 #export abtests='antibody_legacy antibody_CDR_grafting antibody_loop_modeling_protocol antibody_protocol_using_CCD_loop_mover antibody_protocol_using_KIC_loop_mover'
 alias abintegrationtests='./integration.py -j4 $abtests'
 
-
 setopt autocd
 cdpath=($HOME $WORK $ROSETTA $HOME/Research $ROSETTA/main/tests $ROSETTA/main)
-
-export ROSETTA
-export ROSETTA3_DB
