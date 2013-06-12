@@ -143,4 +143,8 @@ source ~/dotfiles/aliases-jeff.zsh
 if [[ -d ~/local/pyrosetta ]]; then source ~/local/pyrosetta/SetPyRosettaEnvironment.sh; fi
 export PATH=$PATH:$PYROSETTA
 
+if [[ $HOST == 'willie' ]]; then
+	export PATH=/opt/local/libexec/gnubin:$PATH
+fi
+
 # testing BBEdit git checking

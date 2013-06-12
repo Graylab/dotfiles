@@ -9,7 +9,7 @@
 UNAME=`uname`
 alias rm='rm -i'
 #setenv CLICOLOR true # mac setting
-alias ls='ls -FG'
+alias ls='ls -FG --color'
 alias la='"ls" -FGa'
 alias ll='ls -l'
 alias lla='la -l'
