@@ -135,7 +135,7 @@ if [[ `hostname` = *tacc* ]]; then
     elif [[ `hostname` = *stampede* ]]; then
     	echo detected stampede environment
     	HOST=stampede
-    	export SQUEUE_FORMAT="%.7i %.9P %.14j %.8u %.2t %.10M %.6D %R" 
+    	export SQUEUE_FORMAT="%.7i %.9P %.21j %.8u %.2t %.10M %.6D %R" 
     fi
 fi
 
