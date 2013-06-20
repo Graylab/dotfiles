@@ -168,25 +168,22 @@ alias cst='condor_status'
 alias cup='condor_userprio'
 
 #sbatch
-alias sqme='squeue -u jgray -S N'
+alias sqme="squeue -u jgray; squeue -u jgray | wc"
 
 alias Rbatch='time nice R BATCH --no-restore --no-save'
-
-# ChBE 409 aliases
-alias 409='newgrp ChBE409; umask g+rwx'
-alias no409='newgrp lab_users; umask g-w'
-alias edit409='cd ~/public_html/courses/540.409/; emacs -geometry 120x80+1010+10 index.html &'
 
 #TACC aliases
 export ROSETTA=~/git/Rosetta
 if [[ `hostname` = *tacc* ]]; then
   export ROSETTA=$WORK/git/Rosetta
-  alias isession='srun -p development -t 0:30:00 -n 32 --pty /bin/bash -l'
+  alias isession='srun -p development -t 0:60:00 -n 1 -A 454HTPSeq --pty /bin/bash -l'
 fi
 export RABSCRIPTS=$ROSETTA/tools/antibody
 export ROSETTA3_DB=$ROSETTA/main/database
 export PATH=$PATH:$ROSETTA/main/source/bin
 export PATH=$PATH:$RABSCRIPTS
+export PATH=$PATH:$ROSETTA/tools/docking/pdb_scripts
+export PATH=$PATH:$ROSETTA/tools/docking/scorefile_scripts
 export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
 source $RABSCRIPTS/antibody_functions.zsh
 
@@ -217,3 +214,5 @@ alias abintegrationtests='./integration.py -j4 $abtests'
 
 setopt autocd
 cdpath=($HOME $WORK $ROSETTA $HOME/Research $ROSETTA/main/tests $ROSETTA/main)
+
+
