@@ -139,9 +139,16 @@ if [[ `hostname` = *tacc* ]]; then
     fi
 fi
 
+if [[ $(uname) == *CYGWIN* ]]; then
+	echo detected Cygwin environment
+	export PATH=$PATH:/cygdrive/c/Windows/system32/ping
+fi
+
 source ~/dotfiles/aliases-jeff.zsh
-if [[ -d ~/local/pyrosetta ]]; then source ~/local/pyrosetta/SetPyRosettaEnvironment.sh; fi
-export PATH=$PATH:$PYROSETTA
+if [[ -d ~/local/pyrosetta ]]; then 
+	source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
+	export PATH=$PATH:$PYROSETTA
+fi
 
 if [[ $HOST == 'willie' ]]; then
 	export PATH=/opt/local/libexec/gnubin:$PATH
