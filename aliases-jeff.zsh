@@ -9,7 +9,8 @@
 UNAME=`uname`
 alias rm='rm -i'
 #setenv CLICOLOR true # mac setting
-alias ls='ls -FG --color'
+alias ls='ls -FG'
+#alias ls='ls -FG --color'
 alias la='"ls" -FGa'
 alias ll='ls -l'
 alias lla='la -l'
@@ -206,6 +207,7 @@ alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 
 # git
 alias status='git status'
+alias mpa='cd $ROSETTA/main/source/xcode; python make_project.py all; bk'
 
 set -o shwordsplit
 export abtests='antibody_legacy antibody_graft antibody_H3 antibody_H3_legacy'
@@ -215,4 +217,13 @@ alias abintegrationtests='./integration.py -j4 $abtests'
 setopt autocd
 cdpath=($HOME $WORK $ROSETTA $HOME/Research $ROSETTA/main/tests $ROSETTA/main)
 
+function cpadm() {
+	for f in */*Combined.pdf
+	do
+	  dest=$(echo $f | sed -e 's/.*\///' -e 's/ - Combined//' -e 's/ /_/g')
+	  echo cp "$f" "/Users/jeff/tmp/adm/$dest"
+	  cp -p "$f" "/Users/jeff/tmp/adm/$dest"
+	done
+	#${1+$1/}*/grafting/details/${2:-H3}.fasta; do echo -n $f\ ;tail -1 $f | wc | awk {'print $3-1'} ; done
+}
 

@@ -8,7 +8,7 @@ if [[ `hostname -s` = killdevil* ]]; then
 	       . /etc/profile.modules
 		module load null mvapich_gcc python/2.7.1 git/1.7.1
 	fi
-	
+
 	case "$0" in
 	          -sh|sh|*/sh)  modules_shell=sh ;;
 	       -ksh|ksh|*/ksh)  modules_shell=ksh ;;
@@ -16,7 +16,7 @@ if [[ `hostname -s` = killdevil* ]]; then
 	    -bash|bash|*/bash)  modules_shell=bash ;;
 	esac
 	module() { eval `/nas02/apps/Modules/$MODULE_VERSION/bin/modulecmd $modules_shell $*`; }
-	
+
 	# Source global definitions
 	if [ -f /etc/bashrc ]; then
 	        . /etc/bashrc
@@ -88,8 +88,8 @@ unsetopt sharehistory
 #better dealing with ambiguous auto-completion
 setopt list_ambiguous
 
-__git_files () { 
-    _wanted files expl 'local files' _files 
+__git_files () {
+    _wanted files expl 'local files' _files
 }
 
 function git_prompt_info() {
@@ -135,7 +135,7 @@ if [[ `hostname` = *tacc* ]]; then
     elif [[ `hostname` = *stampede* ]]; then
     	echo detected stampede environment
     	HOST=stampede
-    	export SQUEUE_FORMAT="%.7i %.9P %.21j %.8u %.2t %.10M %.6D %R" 
+    	export SQUEUE_FORMAT="%.7i %.9P %.21j %.8u %.2t %.10M %.6D %R"
     fi
 fi
 
@@ -145,10 +145,15 @@ if [[ $(uname) == *CYGWIN* ]]; then
 fi
 
 source ~/dotfiles/aliases-jeff.zsh
-if [[ -d ~/local/pyrosetta ]]; then 
+if [[ -d ~/local/pyrosetta ]]; then
+	echo "Hey, it looks like you have an old PyRosetta installation!"
 	source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
 	export PATH=$PATH:$PYROSETTA
 fi
+if [[ -d ~/git/PyRosetta ]]; then
+	source ~/git/PyRosetta/SetPyRosettaEnvironment.sh
+fi
+
 
 if [[ $HOST == 'willie' ]]; then
 	export PATH=/opt/local/libexec/gnubin:$PATH
