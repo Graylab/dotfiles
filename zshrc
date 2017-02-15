@@ -121,12 +121,12 @@ if [[ `hostname` = *tacc* ]]; then
 	export PATH=$PATH:$WORK/svn/docking
 	export PATH=$PATH:$WORK/svn/docking/pdb_scripts
 	SSH_CLIENT_IP=$(echo $SSH_CLIENT | cut -f 1 -d" ")
-	if [[ -d $SCRATCH/pyrosetta ]]; then
-		source $SCRATCH/pyrosetta/SetPyRosettaEnvironment.sh
-	else
-		echo No PyRosetta on $SCRATCH.  Consider running:
-		echo cd $SCRATCH; untar $WORK/PyRosetta*; realias
-	fi
+	# if [[ -d $SCRATCH/pyrosetta ]]; then
+# 		source $SCRATCH/pyrosetta/SetPyRosettaEnvironment.sh
+# 	else
+# 		echo No PyRosetta on $SCRATCH.  Consider running:
+# 		echo cd $SCRATCH; untar $WORK/PyRosetta*; realias
+# 	fi
     if [[ `hostname` = *ls* ]]; then
 	    echo detected lonestar environment
     	module load blast
@@ -145,14 +145,15 @@ if [[ $(uname) == *CYGWIN* ]]; then
 fi
 
 source ~/dotfiles/aliases-jeff.zsh
+
 if [[ -d ~/local/pyrosetta ]]; then
 	echo "Hey, it looks like you have an old PyRosetta installation!"
 	source ~/local/pyrosetta/SetPyRosettaEnvironment.sh
 	export PATH=$PATH:$PYROSETTA
 fi
-if [[ -d ~/git/PyRosetta ]]; then
-	source ~/git/PyRosetta/SetPyRosettaEnvironment.sh
-fi
+# if [[ -d ~/git/PyRosetta ]]; then
+# 	source ~/git/PyRosetta/SetPyRosettaEnvironment.sh
+# fi
 
 
 if [[ $HOST == 'willie' ]]; then
