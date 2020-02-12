@@ -156,6 +156,10 @@ function quote () {
 alias bbedit='open -a bbedit'
 alias pymol='open -a MacPyMOL'
 
+##### pc shortcuts ####
+
+alias charm="/mnt/c/Program\ Files/JetBrains/PyCharm\ 2019.3.3/bin/pycharm64.exe"
+
 ##################################################
 ##### research-related shortcuts
 ##################################################
@@ -186,7 +190,7 @@ export PATH=$PATH:$RABSCRIPTS
 export PATH=$PATH:$ROSETTA/tools/docking/pdb_scripts
 export PATH=$PATH:$ROSETTA/tools/docking/scorefile_scripts
 export PATH=$PATH:$ROSETTA/tools/protein_tools/scripts
-source $RABSCRIPTS/antibody_functions.zsh
+#source $RABSCRIPTS/antibody_functions.zsh
 
 # Ab aliases
 alias cdA='cd $RABSCRIPTS'
