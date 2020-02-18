@@ -105,8 +105,9 @@ export PATH=$PATH:$HOME/bin
 export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
-export PYTHONPATH=/Applications/MacPyMOL.app/pymol/
+export PYTHONPATH=/Applications/MacPyMOL.app/pymol/:$HOME/deepH3-distances-orientations/
 
+export GREP_OPTIONS=
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -161,3 +162,6 @@ if [[ $HOST == 'willie' ]]; then
 fi
 
 # testing BBEdit git checking
+
+# activate conda
+eval "$($HOME/miniconda3/bin/conda shell.zsh hook)"
