@@ -48,7 +48,8 @@ alias untar='tar -xvf '
 alias why='echo because'
 alias rtfm='man -M /usr/local/gnu/man'
 alias e='pico'
-if [ -f /usr/bin/nano ]; then alias pico='nano'; else alias nano='pico';fi
+#if [ -e /usr/bin/nano ]; then alias pico='nano';fi
+#if [ -e /usr/bin/pico ]; then alias nano='pico';fi
 alias m='pine'
 alias c='clear'
 alias g='gnuplot'
