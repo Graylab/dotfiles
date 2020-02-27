@@ -155,4 +155,13 @@ fi
 # testing BBEdit git checking
 
 # activate conda
-eval "$($HOME/miniconda3/bin/conda shell.zsh hook)"
+if [[ -d $HOME/miniconda3 ]]; then
+	eval "$($HOME/miniconda3/bin/conda shell.zsh hook)"
+fi
+
+# marcc environment
+module load python/3.6
+## pip installs are one-time
+#pip3 install --user -r work/jgray21//deepH3-distances-orientations/requirements.txt
+#pip3 install --user ipython
+export PATH=$PATH:.local/bin
