@@ -147,8 +147,6 @@ alias willie='ssh jeff@willie.icmb.utexas.edu'
 # MARCC
 marcc=login.marcc.jhu.edu
 alias marcc="ssh -X $marcc -l jgray21@jhu.edu"
-# authenticate for multiple subsequent connections
-alias marccauth="ssh -fNM $marcc -l jgray21@jhu.edu"
 
 function quote () {
         echo Type the quote, ^C to end
