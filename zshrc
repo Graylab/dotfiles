@@ -30,14 +30,6 @@ fi
 #if [[ `hostname -s` = killdevil* ]]; then
 #	tmux set -g status-bg white
 #fi
-#
-#if [[ `hostname -s` = garin* ]]; then
-#	tmux set -g status-bg cyan
-#fi
-#
-#if [[ `hostname -s` = contador* ]]; then
-#	tmux set -g status-bg green
-#fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -46,7 +38,6 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="timjacobs"
 ZSH_THEME="jjgray"
 
 # Set to this to use case-sensitive completion
@@ -69,7 +60,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx svn macports)
+plugins=(git osx macports)
 
 source $ZSH/oh-my-zsh.sh
 
