@@ -216,6 +216,9 @@ alias jsconsstampede='jsconsiccmpimkl'
 alias jsconsmac='./scons.py -j 4 mode=release bin'
 alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 
+#marcc paths
+alias cdw='cd ~/work/jgray'
+
 # git
 alias status='git status'
 alias mpa='cd $ROSETTA/main/source/xcode; python make_project.py all; bk'
