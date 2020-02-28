@@ -164,7 +164,7 @@ if [[ $HOSTNAME == *"bc-login"* || $SLURM_CLUSTER_NAME == "marcc" ]]; then
 	## pip installs are one-time
 	#pip3 install --user -r work/jgray21//deepH3-distances-orientations/requirements.txt
 	#pip3 install --user ipython
-	export PATH=$PATH:.local/bin
+	export PATH=$PATH:~/.local/bin
 	export WORK=~/work/jgray
 	export PYTHONPATH=$WORK/deepH3-distances-orientations/
 
