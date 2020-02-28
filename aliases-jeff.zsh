@@ -9,8 +9,8 @@
 UNAME=`uname`
 alias rm='rm -i'
 #setenv CLICOLOR true # mac setting
-alias ls='ls -FG'
-#alias ls='ls -FG --color'
+#alias ls='ls -FG'
+alias ls='ls -FG --color'
 alias la='"ls" -FGa'
 alias ll='ls -l'
 alias lla='la -l'
@@ -216,8 +216,7 @@ alias jsconsstampede='jsconsiccmpimkl'
 alias jsconsmac='./scons.py -j 4 mode=release bin'
 alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 
-#marcc paths
-alias cdw='cd ~/work/jgray'
+alias cdw='cd $WORK'
 
 # git
 alias status='git status'

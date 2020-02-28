@@ -96,8 +96,6 @@ export PATH=$PATH:$HOME/bin
 export PATH=$HOME/bin:$HOME/local/bin:/usr/local/ncbi/blast/bin:/usr/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
-export PYTHONPATH=/Applications/MacPyMOL.app/pymol/:$HOME/deepH3-distances-orientations/
-
 export GREP_OPTIONS=
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -160,8 +158,14 @@ if [[ -d $HOME/miniconda3 ]]; then
 fi
 
 # marcc environment
-module load python/3.6
-## pip installs are one-time
-#pip3 install --user -r work/jgray21//deepH3-distances-orientations/requirements.txt
-#pip3 install --user ipython
-export PATH=$PATH:.local/bin
+if [[ $HOSTNAME == *"bc-login"* || $SLURM_CLUSTER_NAME == "marcc" ]]; then
+	echo Loading MARCC modules and paths
+	module load python/3.6
+	## pip installs are one-time
+	#pip3 install --user -r work/jgray21//deepH3-distances-orientations/requirements.txt
+	#pip3 install --user ipython
+	export PATH=$PATH:.local/bin
+	export WORK=~/work/jgray
+	export PYTHONPATH=$WORK/deepH3-distances-orientations/
+
+fi
