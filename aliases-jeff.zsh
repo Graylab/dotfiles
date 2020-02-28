@@ -217,6 +217,7 @@ alias jsconsmac='./scons.py -j 4 mode=release bin'
 alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 
 alias cdw='cd $WORK'
+export work=$WORK
 
 # git
 alias status='git status'
