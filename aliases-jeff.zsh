@@ -219,6 +219,7 @@ alias jsconsdebug='./scons.py -j 4 mode=debug bin'
 alias cdw='cd $WORK'
 export work=$WORK
 alias cdh='cd $WORK/deepH3-distances-orientations/deeph3'
+export deeph3=$WORK/deepH3-distances-orientations/deeph3
 
 # git
 alias status='git status'

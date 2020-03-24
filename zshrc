@@ -157,6 +157,9 @@ if [[ -d $HOME/miniconda3 ]]; then
 	eval "$($HOME/miniconda3/bin/conda shell.zsh hook)"
 fi
 
+#pip3 fpy local install stuff
+export PATH=$PATH:~/.local/bin
+
 # marcc environment
 if [[ $HOSTNAME == *"bc-login"* || $SLURM_CLUSTER_NAME == "marcc" ]]; then
 	echo Loading MARCC modules and paths
@@ -164,7 +167,6 @@ if [[ $HOSTNAME == *"bc-login"* || $SLURM_CLUSTER_NAME == "marcc" ]]; then
 	## pip installs are one-time
 	#pip3 install --user -r work/jgray21//deepH3-distances-orientations/requirements.txt
 	#pip3 install --user ipython
-	export PATH=$PATH:~/.local/bin
 	export WORK=~/work/jgray
 	export PYTHONPATH=$WORK/deepH3-distances-orientations/
 
